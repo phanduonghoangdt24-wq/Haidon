@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading...</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            overflow: hidden;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+        }
+        
+        #scare {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+        }
+        
+        #scare img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">Loading...<br><small>Đang tải, chờ chút nhé...</small></div>
+    
+    <div id="scare">
+        <img src="https://i0.wp.com/eziyoda.com/wp-content/uploads/2022/08/The-Exorcist-Regan-MacNeil-Stare.jpeg" alt="Jumpscare">
+    </div>
+    
+    <audio id="scream" src="https://www.orangefreesounds.com/wp-content/uploads/2021/01/Jumpscare-sound-effect.mp3" preload="auto"></audio>
+    
+    <script>
+        setTimeout(function() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('scare').style.display = 'block';
+            
+            var audio = document.getElementById('scream');
+            audio.volume = 1.0; // Âm lượng to nhất
+            audio.play();
+        }, 7000); // 7 giây chờ (bạn có thể đổi thành 5000 cho 5 giây)
+    </script>
+</body>
+</html>
